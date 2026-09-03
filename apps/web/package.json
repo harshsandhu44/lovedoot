@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc"
+    "typecheck": "next typegen && tsc"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
