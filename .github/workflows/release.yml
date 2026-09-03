@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+      # Production deploy is chained here (gated on the `web-v*` release output)
+      # once the Vercel project and its CI secrets exist — see the MVP plan.

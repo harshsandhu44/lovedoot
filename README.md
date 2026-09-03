@@ -22,3 +22,13 @@ pnpm install
 | `pnpm format`                                | Prettier write                     |
 | `pnpm format:check`                          | Prettier check (CI)                |
 | `pnpm build` / `pnpm dev` / `pnpm typecheck` | Turbo tasks across packages        |
+
+## Releases (`apps/web`)
+
+Versioning is automated with [release-please](https://github.com/googleapis/release-please).
+On every push to `main`, the `Release` workflow opens/updates a **release PR**
+that bumps `apps/web/package.json`, updates `apps/web/CHANGELOG.md`, and — when
+merged — cuts a `web-v*` git tag and GitHub release. Version bumps are derived
+from [Conventional Commits](https://www.conventionalcommits.org/).
+
+The running version and commit are exposed at `/version`.
