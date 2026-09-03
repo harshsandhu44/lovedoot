@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.next/
+out/
+build/
+
+# turbo
+.turbo/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.*
+!.env.example
+
+# os / editor
+.DS_Store
+*.tsbuildinfo
