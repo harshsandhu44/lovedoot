@@ -12,9 +12,9 @@ pnpm install
 
 ## Commands
 
-| Command | What it does |
-| --- | --- |
-| `pnpm lint` | ESLint over the repo |
-| `pnpm format` | Prettier write |
-| `pnpm format:check` | Prettier check (CI) |
+| Command                                      | What it does                                 |
+| -------------------------------------------- | -------------------------------------------- |
+| `pnpm lint`                                  | ESLint over the repo                         |
+| `pnpm format`                                | Prettier write                               |
+| `pnpm format:check`                          | Prettier check (CI)                          |
 | `pnpm build` / `pnpm dev` / `pnpm typecheck` | Turbo tasks (no-op until a package is added) |
