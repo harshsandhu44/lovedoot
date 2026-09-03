@@ -13,8 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-      # Production deploy is chained here (gated on the `web-v*` release output)
-      # once the Vercel project and its CI secrets exist — see the MVP plan.
+
+      # Production deploy fires only when a web-v* release is cut. Vercel builds
+      # main's HEAD (== the release commit at this point); a push racing the hook
+      # is corrected by the next release.
+      - name: Deploy apps/web to Vercel production
+        if: ${{ steps.release.outputs['apps/web--release_created'] == 'true' }}
+        run: curl -fsS -X POST "$VERCEL_DEPLOY_HOOK"
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}

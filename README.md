@@ -31,4 +31,9 @@ that bumps `apps/web/package.json`, updates `apps/web/CHANGELOG.md`, and — whe
 merged — cuts a `web-v*` git tag and GitHub release. Version bumps are derived
 from [Conventional Commits](https://www.conventionalcommits.org/).
 
+Merging the release PR is also the **only** trigger for a Vercel production
+deploy: `apps/web/vercel.json` disables auto-deploys on `main`, and the `Release`
+job pings a Vercel deploy hook when (and only when) a release is created. Pushes
+to `main` and PRs still get preview deployments.
+
 The running version and commit are exposed at `/version`.
